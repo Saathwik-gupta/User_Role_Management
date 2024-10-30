@@ -23,7 +23,7 @@ namespace UserRoleManagementApi.Controllers
             try
             {
                 var roles = await _roleService.GetAllRolesAsync();
-                return Ok(new{message = "Successfully retreived the Roles."});
+                return Ok(roles);
             }
             catch (Exception ex)
             {
@@ -43,7 +43,7 @@ namespace UserRoleManagementApi.Controllers
                 {
                     return NotFound($"Role with ID {id} is  not found.");
                 }
-                return Ok(new{message = "Successfully fetched Role by ID."});
+                return Ok(role);
             }
             catch (Exception ex)
             {
@@ -133,7 +133,7 @@ namespace UserRoleManagementApi.Controllers
                 {
                     return NotFound($"Role with name '{roleName}' is not found.");
                 }
-                return Ok(new{message = "Successfully retreived the Role by Name."});
+                return Ok(role);
             }
             catch (Exception ex)
             {

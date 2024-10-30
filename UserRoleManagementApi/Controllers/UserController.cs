@@ -28,7 +28,7 @@ namespace UserRoleManagementApi.Controllers
             try
             {
                 var users = await _userService.GetAllUsersAsync();
-                return Ok(new {message ="successfully retrieved users."});
+                return Ok(users);
             }
             catch (Exception ex)
             {
@@ -48,7 +48,7 @@ namespace UserRoleManagementApi.Controllers
                 {
                     return NotFound($"User with ID {id} is not found.");
                 }
-                return Ok(new{message = "successfully retrived user with ID."});
+                return Ok(user);
             }
             catch (Exception ex)
             {
@@ -69,7 +69,7 @@ namespace UserRoleManagementApi.Controllers
             try
             {
                 await _userService.AddUserAsync(userDTO);
-                return Ok(new { message = "Successfully added new user." });
+                return Ok(new { message = "Successfully Added New User." });
             }
             catch (Exception ex)
             {
@@ -138,7 +138,7 @@ namespace UserRoleManagementApi.Controllers
             try
             {
                 var users = await _userService.GetUsersByRoleAsync(roleId);
-                return Ok(new{message = "Successfully fetch the Users by Role."});
+                return Ok(users);
             }
             catch (Exception ex)
             {
@@ -158,7 +158,7 @@ namespace UserRoleManagementApi.Controllers
                 {
                     return NotFound($"User with email {email} is not found.");
                 }
-                return Ok(new{message = "Successfully fetch the User by Email."});
+                return Ok(user);
             }
             catch (Exception ex)
             {
